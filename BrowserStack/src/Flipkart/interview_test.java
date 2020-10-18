@@ -21,7 +21,7 @@ public class interview_test {
 		
 		WebDriver driver = new FirefoxDriver(); //Instantiate webdriver over here.
 		test_case(driver);
-		//driver.quit();
+		driver.quit();
 }
 	
 	public static void test_case(WebDriver driver) throws Exception {
