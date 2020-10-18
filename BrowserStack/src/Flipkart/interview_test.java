@@ -34,9 +34,6 @@ public class interview_test {
 		capabilities.setCapability("build", "1.0"); // CI/CD job name using BROWSERSTACK_BUILD_NAME env variable
 		driver = new RemoteWebDriver(new URL(URL), capabilities);
 
-		
-		
-		
 		System.setProperty("webdriver.gecko.driver", "C:\\selenium\\geckodriver-v0.27.0-win32\\geckodriver.exe");
 		
 		driver = new FirefoxDriver(); //Instantiate webdriver over here.
@@ -59,10 +56,14 @@ public class interview_test {
 		driver.findElement(By.xpath("//button[@class='_2AkmmA _29YdH8']")).sendKeys(Keys.ESCAPE);
 		
 		// Search for iPhone 6
-		driver.findElement(By.xpath("//input[@placeholder='Search for products, brands and more']")).sendKeys("iPhone 6");
+		driver.findElement(By.className("LM6RPg")).sendKeys("iPhone 6");
 		
 		// Click on search
 		driver.findElement(By.className("vh79eN")).click();
+		
+		// Click on mobile
+		Thread.sleep(2000);
+		driver.findElement(By.className("sUG0yY")).click();
 		
 		// Click on min
 		driver.findElement(By.className("_1qKb_B")).click();
@@ -72,9 +73,6 @@ public class interview_test {
 		Select min = new Select(min_dd);
 		min.selectByIndex(9);
 		
-		// Click on mobile
-		Thread.sleep(2000);
-		driver.findElement(By.className("sUG0yY")).click();
 		
 		// Click on apple
 		Thread.sleep(2000);
