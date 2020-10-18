@@ -22,8 +22,12 @@ public class interview_test {
 	public static void main(String[] args) throws Exception {
 		WebDriver driver;
 		// Define desired_capabilities for a desktop web browser of your choice.
-		String username = "shuvajeetroy1";
-		String accessKey = "WTZiEy2VQsysYsWMxnBp";
+		
+		String username = System.getenv("BROWSERSTACK_USERNAME");
+		String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
+		String buildName = System.getenv("BROWSERSTACK_BUILD_NAME");
+		String browserstackLocal = System.getenv("BROWSERSTACK_LOCAL");
+		String browserstackLocalIdentifier = System.getenv("BROWSERSTACK_LOCAL_IDENTIFIER");
 		String URL = "https://" + username + ":" + accessKey + "@hub.browserstack.com/wd/hub";
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -32,6 +36,8 @@ public class interview_test {
 		capabilities.setCapability("browser", "chrome");
 		capabilities.setCapability("browser_version", "latest");
 		capabilities.setCapability("build", "1.0"); // CI/CD job name using BROWSERSTACK_BUILD_NAME env variable
+		capabilities.setCapability("browserstack.local", browserstackLocal);
+		capabilities.setCapability("browserstack.localIdentifier", browserstackLocalIdentifier);
 		driver = new RemoteWebDriver(new URL(URL), capabilities);
 
 		System.setProperty("webdriver.gecko.driver", "C:\\selenium\\geckodriver-v0.27.0-win32\\geckodriver.exe");
