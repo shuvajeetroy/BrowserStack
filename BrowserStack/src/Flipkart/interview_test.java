@@ -23,8 +23,8 @@ public class interview_test {
 		WebDriver driver;
 		// Define desired_capabilities for a desktop web browser of your choice.
 		
-		String username = System.getenv("BROWSERSTACK_USERNAME");
-		String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
+		String username = "shuvajeetroy1";
+		String accessKey = "WTZiEy2VQsysYsWMxnBp";
 		String buildName = System.getenv("BROWSERSTACK_BUILD_NAME");
 		String browserstackLocal = System.getenv("BROWSERSTACK_LOCAL");
 		String browserstackLocalIdentifier = System.getenv("BROWSERSTACK_LOCAL_IDENTIFIER");
@@ -33,7 +33,7 @@ public class interview_test {
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability("os", "Windows");
 		capabilities.setCapability("os_version", "10");
-		capabilities.setCapability("browser", "chrome");
+		capabilities.setCapability("browser", "Firefox");
 		capabilities.setCapability("browser_version", "latest");
 		capabilities.setCapability("name", "BStack-[Java] Sample Test"); // test buildName
 		capabilities.setCapability("build", buildName);  // CI/CD job name using BROWSERSTACK_BUILD_NAME env variable
