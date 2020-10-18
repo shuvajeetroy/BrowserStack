@@ -1,6 +1,7 @@
 package Flipkart;
 
 import java.net.URL;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -94,29 +95,31 @@ public class interview_test {
 		String url = driver.getCurrentUrl();
 		System.out.println(url+"\n");
 		
-		WebElement productName = driver.findElement(By.xpath("//div[@id='container']"));
-		List<WebElement> list = productName.findElements(By.className("_2cLu-l"));
+		WebElement product = driver.findElement(By.xpath("//div[@id='container']"));
+		
+		List<WebElement> list = product.findElements(By.className("_2cLu-l"));
 		System.out.println("Total Products : "+list.size());
 		
+		//declaring array to store the name and price
 		String details[][] = new String[list.size()][2];
 		int i,j;
 		i=j=0;
 		
 		Iterator<WebElement> itr = list.iterator();
 		while(itr.hasNext() && i<list.size()) {
-			details[i][0] = itr.next().getText();
+			details[i][0] = itr.next().getText(); //Storing the name of the phones
 			i++;
 		}
 		
-		WebElement productPrice = driver.findElement(By.xpath("//div[@id='container']"));
-		List<WebElement> listPrice = productPrice.findElements(By.className("_1vC4OE"));
+		List<WebElement> listPrice = product.findElements(By.className("_1vC4OE"));
 		
 		Iterator<WebElement> itr1 = listPrice.iterator();
 		while(itr1.hasNext() && j<list.size()) {
-			String price = itr1.next().getText();
+			String price = itr1.next().getText(); //Storing the price of the phone
 			details[j][1] = price.substring(1);
 			j++;
 		}
+		
 		for(i=0; i<list.size(); i++) {
 			for(j=0; j<2; j++) {
 				System.out.print(details[i][j]+", ");
