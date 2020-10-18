@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="C:/selenium/selenium-java-3.141.59/client-combined-3.141.59.jar"/>
 	<classpathentry kind="lib" path="C:/selenium/selenium-java-3.141.59/client-combined-3.141.59-sources.jar"/>
 	<classpathentry kind="lib" path="C:/selenium/selenium-server-standalone-3.141.59.jar"/>
+	<classpathentry kind="lib" path="C:/selenium/testng-6.7.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

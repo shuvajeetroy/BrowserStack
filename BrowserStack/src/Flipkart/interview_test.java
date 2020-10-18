@@ -1,25 +1,45 @@
 package Flipkart;
 
+import java.net.URL;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.server.handler.SendKeys;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 public class interview_test {
 	//public static final String huburl = "http://127.0.0.1/wd/hub";
 	public static void main(String[] args) throws Exception {
-
+		WebDriver driver;
 		// Define desired_capabilities for a desktop web browser of your choice.
+		String username = "shuvajeetroy1";
+		String accessKey = "WTZiEy2VQsysYsWMxnBp";
+		String URL = "https://" + username + ":" + accessKey + "@hub.browserstack.com/wd/hub";
+
+		DesiredCapabilities capabilities = new DesiredCapabilities();
+		capabilities.setCapability("os", "Windows");
+		capabilities.setCapability("os_version", "10");
+		capabilities.setCapability("browser", "chrome");
+		capabilities.setCapability("browser_version", "latest");
+		capabilities.setCapability("build", "1.0"); // CI/CD job name using BROWSERSTACK_BUILD_NAME env variable
+		driver = new RemoteWebDriver(new URL(URL), capabilities);
+
+		
+		
+		
 		System.setProperty("webdriver.gecko.driver", "C:\\selenium\\geckodriver-v0.27.0-win32\\geckodriver.exe");
 		
-		WebDriver driver = new FirefoxDriver(); //Instantiate webdriver over here.
+		driver = new FirefoxDriver(); //Instantiate webdriver over here.
 		test_case(driver);
 		driver.quit();
 }
@@ -34,6 +54,8 @@ public class interview_test {
 		
 		// Resolve http://flipkart.com/
 		driver.get("https://www.flipkart.com/");
+		String s = driver.getTitle();
+		Assert.assertEquals(driver.getTitle(), s);
 		driver.findElement(By.xpath("//button[@class='_2AkmmA _29YdH8']")).sendKeys(Keys.ESCAPE);
 		
 		// Search for iPhone 6
