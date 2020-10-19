@@ -35,16 +35,17 @@ public class interview_test {
 		capabilities.setCapability("os", "Windows");
 		capabilities.setCapability("os_version", "10");
 		capabilities.setCapability("browser", "Firefox");
-		capabilities.setCapability("browser_version", "latest");
+		capabilities.setCapability("browser_version", "80.0");
 		capabilities.setCapability("name", "BStack-[Java] Sample Test"); // test buildName
 		capabilities.setCapability("build", buildName);  // CI/CD job name using BROWSERSTACK_BUILD_NAME env variable
 		capabilities.setCapability("browserstack.local", browserstackLocal);
 		capabilities.setCapability("browserstack.localIdentifier", browserstackLocalIdentifier);
-		driver = new RemoteWebDriver(new URL(URL), capabilities);
-
-		System.setProperty("webdriver.gecko.driver", "C:\\selenium\\geckodriver-v0.27.0-win32\\geckodriver.exe");
 		
-		driver = new FirefoxDriver(); //Instantiate webdriver over here.
+		driver = new RemoteWebDriver(new URL(URL), capabilities); // to run on BrowserStack
+
+		//System.setProperty("webdriver.gecko.driver", "C:\\selenium\\geckodriver-v0.27.0-win32\\geckodriver.exe"); //to run on local
+		
+		//driver = new FirefoxDriver(); //Instantiate webdriver over here.
 		test_case(driver);
 		driver.quit();
 }
