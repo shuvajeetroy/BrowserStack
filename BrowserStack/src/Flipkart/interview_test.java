@@ -26,10 +26,11 @@ public class interview_test {
 		
 		String username = "shuvajeetroy1";
 		String accessKey = "WTZiEy2VQsysYsWMxnBp";
-		String buildName = System.getenv("BROWSERSTACK_BUILD_NAME");
-		String browserstackLocal = System.getenv("BROWSERSTACK_LOCAL");
-		String browserstackLocalIdentifier = System.getenv("BROWSERSTACK_LOCAL_IDENTIFIER");
+		//String buildName = System.getenv("BROWSERSTACK_BUILD_NAME");
+		//String browserstackLocal = System.getenv("BROWSERSTACK_LOCAL");
+		//String browserstackLocalIdentifier = System.getenv("BROWSERSTACK_LOCAL_IDENTIFIER");
 		String URL = "https://" + username + ":" + accessKey + "@hub.browserstack.com/wd/hub";
+		//System.out.println(buildName+"\t"+browserstackLocal+"\t"+browserstackLocalIdentifier);
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability("os", "Windows");
@@ -37,9 +38,9 @@ public class interview_test {
 		capabilities.setCapability("browser", "Firefox");
 		capabilities.setCapability("browser_version", "80.0");
 		capabilities.setCapability("name", "BStack-[Java] Sample Test"); // test buildName
-		capabilities.setCapability("build", buildName);  // CI/CD job name using BROWSERSTACK_BUILD_NAME env variable
-		capabilities.setCapability("browserstack.local", browserstackLocal);
-		capabilities.setCapability("browserstack.localIdentifier", browserstackLocalIdentifier);
+		capabilities.setCapability("build", "1.0");  // CI/CD job name using BROWSERSTACK_BUILD_NAME env variable
+		//capabilities.setCapability("browserstack.local", browserstackLocal);
+		//capabilities.setCapability("browserstack.localIdentifier", browserstackLocalIdentifier);
 		
 		driver = new RemoteWebDriver(new URL(URL), capabilities); // to run on BrowserStack
 
