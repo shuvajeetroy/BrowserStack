@@ -24,8 +24,10 @@ public class interview_test {
 		WebDriver driver;
 		// Define desired_capabilities for a desktop web browser of your choice.
 		
-		String username = "shuvajeetroy1";
-		String accessKey = "WTZiEy2VQsysYsWMxnBp";
+		//String username = "shuvajeetroy1";
+		//String accessKey = "WTZiEy2VQsysYsWMxnBp";
+		String username = System.getenv("BROWSERSTACK_USERNAME");
+		String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
 		//String buildName = System.getenv("BROWSERSTACK_BUILD_NAME");
 		//String browserstackLocal = System.getenv("BROWSERSTACK_LOCAL");
 		//String browserstackLocalIdentifier = System.getenv("BROWSERSTACK_LOCAL_IDENTIFIER");
